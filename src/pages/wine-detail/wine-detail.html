@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar color="primary">
+  </ion-navbar>
+  <ion-toolbar color="secondary">
+
+  <ion-row>
+    <ion-col col-6>
+      <ion-row style="font-size:large;">
+        Price: {{wine.price | currency:'USD':true:'1.2-2'}}
+      </ion-row> 
+      <ion-row>
+        #{{wine.product}} 
+      </ion-row>            
+    </ion-col>
+    <ion-col col-6>
+        <ion-row>
+          <ion-col col-6>
+            <a href="{{wine.shop}}">Shop</a>
+          </ion-col>
+          <ion-col col-6>
+            <a href="{{wine.pair}}">Pair</a>
+          </ion-col>      
+        </ion-row> 
+    </ion-col>
+  </ion-row>
+
+  </ion-toolbar>  
+</ion-header>
+
+
+<ion-content padding>
+  <h4>{{wine.region}} {{wine.year}}</h4>
+  <ion-row>
+    <ion-col col-4>
+      <img src={{wine.img}} /> {{wine.product}}
+        <h5>My Grade: {{myGrade}}</h5>
+     </ion-col>
+    <ion-col col-8><span  style="text-align: center;"> {{wine.description}}</span></ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="!(taste == description)">
+    <ion-col col-3>Taste</ion-col>
+    <ion-col col-9>{{wine.taste}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3>Varietal</ion-col>
+    <ion-col col-9>{{wine.varietal}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3>Wine-Making</ion-col>
+    <ion-col col-9>{{wine.winemaking}}</ion-col>
+  </ion-row>
+
+<br/>
+<h4>Average Grade: {{averageGrade | number:'1.2-2'}} </h4>
+
+  <ion-list>
+    <ion-row *ngFor="let gradeItem of gradesSummary" >
+       <ion-col col-1>{{gradeItem.grade}}</ion-col>
+       <ion-col col-3>{{gradeItem.gradeDesc}}</ion-col>
+       <ion-col col-8><span color="primary">{{gradeItem.gradeBy}}</span></ion-col>        
+    </ion-row>
+
+  </ion-list>
+  <!--<button ion-button (click)="goHome()">Go Home</button>-->
+</ion-content>

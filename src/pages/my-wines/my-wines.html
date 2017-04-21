@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="primary">  
+    <button ion-button menuToggle>  
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lee's Wines</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="secondary">
+    <ion-title>My Wines</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-list-header class="my-wines-header">My Favorite Wines</ion-list-header>
+    <button ion-item *ngFor="let wine of favorites" (click)="favoriteTapped($event,wine)">
+      <ion-icon name="wine"></ion-icon>
+      <span style="color:green;">{{wine.label}}</span>
+      <p>{{wine.region}} {{wine.year}} {{wine.price | currency:'USD':true:'1.2-2'}}</p>
+    </button>
+  </ion-list>
+
+<h4 style="color:red;">Please Note - this app is at a proof of concept stage and is not saving grades for wines at this point.</h4>
+
+
+  <p style="color:red;" *ngIf="favorites.length==0">You currently do not have any Favorite Wines.</p>
+  <p>To add Wines to your List of Favorites,
+   select a Wine Category, and then Select a Wine to Grade. </p>
+  <p>The Wines you grade as Favorites will be listed here.</p>
+
+  <button ion-button (click)="gotoCategories()">
+    
+       <span>Search Wine Categories .</span>
+       <ion-icon name="search"></ion-icon>
+  </button>
+</ion-content>

@@ -1,0 +1,1 @@
+export { Wines } from '../pages/wines/wines';

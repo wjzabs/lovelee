@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ loveleeApi.currentWine.label }}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-tabs>
+  <ion-tab tabTitle="Wine" [root]="wineDetailTab" [rootParams]="wine" tabIcon="filter"></ion-tab>
+  <ion-tab tabTitle="Grade" [root]="gradeTab" [rootParams]="wine" tabIcon="stats"></ion-tab>
+</ion-tabs>
